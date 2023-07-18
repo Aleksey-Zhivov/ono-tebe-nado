@@ -19,14 +19,14 @@
 
 /* ---- Левая менюшка ---- */
 
-.header_menu_left {
+.header__links-list {
   display: flex;
   flex-direction: row;
   justify-content: start;
   gap: 32px;
 }
 
-.header__menu_item {
+.header__links-list-item {
   color: #000;
   font-weight: 400;
   font-size: 18px;
@@ -34,11 +34,11 @@
   list-style: circle;
 }
 
-.header__menu_item-active {
+.header__links-list-item_no-bullit {
   list-style-type: none;
 }
 
-.header__menu_link {
+.header__link {
   border-bottom: 1px #000 solid;
   text-decoration: none;  
 }
@@ -47,20 +47,16 @@
   text-decoration: none;
 }
 
-/* ---- Черное лого в header ---- */
-
-.header_logo {
+.header__logo {
   place-self: center;
 }
 
-.header_logo-black {
+.header__logo-image {
   width: 148px;
   height: 105px;
 }
 
-/* ---- Правая менюшка ---- */
-
-.header_contacts-menu {
+.address {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -70,9 +66,6 @@
   font-size: 18px;
   line-height: 1.35;
   text-underline-offset: 2px;
-}
-
-.address {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-style: inherit;
@@ -84,14 +77,12 @@
   position: relative;
   z-index: 0;
   width: 100%;
-  height: 757px;
+  min-height: 757px; 
   background-image: url("../images/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 90px;
 }
-
-/* ---- Накладываем overlay ---- */
 
 .cover::before {
   content: "";
@@ -131,7 +122,6 @@
 }
 
 .aligned-text_center {
-  display: block;
   line-height: 1.1;
   text-align: center;  
 }
@@ -162,11 +152,11 @@
   word-spacing: 17px;
 }
 
-.cover__description-text_word-spacing {
+.cover__description-text_indent {
   word-spacing: 22px;
 }
 
-.bet_button {
+.cover__description-bet_button {
   border: 1px solid rgba(255, 255, 255, 0.8);
   padding: 12px 32px;
   color: rgba(255, 255, 255, 0.8);
@@ -177,6 +167,11 @@
   text-transform: uppercase;
   background-color: transparent;
   cursor: pointer;
+  transition: background-color 0.6s;
+}
+
+.cover__description-bet_button:hover { 
+  background-color: rgb(109, 179, 183);
 }
 
 /* ---- ОПИСАНИЕ LOTS ---- */
@@ -207,6 +202,11 @@
 
 }
 
+.card-link {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 .card {
   position: relative;
   z-index: 0;
@@ -216,14 +216,14 @@
   flex-grow: 1;
   justify-content: space-between;
   width: 430px;
-  height: 450px;
+  min-height: 450px; 
   padding: 50px 40px;
   color: #FFF;
   font-family: 'Raleway', sans-serif;
-  font-style: normal;
   line-height: 1.2;
   background-repeat: no-repeat;
   background-size: cover;
+  list-style-type: none;
 }
 
 .card::before {
@@ -249,15 +249,11 @@
   background-image: url(../images/card-lot-03.jpg);
 }
 
-.card-link {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-}
-
 .card__title {
   font-weight: 700;
   font-size: 22px;
   text-transform: uppercase;
+  text-decoration: underline;
 }
 
 .card__text {
@@ -347,7 +343,7 @@
   justify-items: space-between;
 }
 
-.footer_contacts-menu {
+.address {
   display: block;
   white-space: wrap;
   align-content: start;
@@ -357,7 +353,7 @@
   font-weight: 400;
   text-underline-offset: 3px;
   line-height: 1.35;
-  width: 240px;
+  min-width: 240px;
 }
 
 .footer__menu {
@@ -384,7 +380,6 @@
 
 .footer__social-list {
   width: 240;
-  height: 48px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -394,4 +389,11 @@
 .footer__social-list-item {
   width: 48px;
   list-style: none;
+}
+
+.footer__social-list-item:hover {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: rgb(109, 179, 183);
 }

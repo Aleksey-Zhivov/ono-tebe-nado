@@ -1,1 +1,1 @@
-https://github.com/Aleksey-Zhivov/ono-tebe-nado/tree/main
+https://github.com/Aleksey-Zhivov/ono-tebe-nado
