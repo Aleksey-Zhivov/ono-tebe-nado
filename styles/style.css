@@ -168,7 +168,7 @@
   cursor: pointer;
 }
 
-.cover__description-bet_button:hover { 
+.description__bet-button:hover { 
   background-color: rgb(109, 179, 183);
 }
 
