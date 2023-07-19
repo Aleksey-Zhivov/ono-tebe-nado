@@ -28,22 +28,22 @@
 
 .header__links-list-item {
   color: #000;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.35;
-  list-style: circle;
+  line-height: normal;
+  text-align: center;
+  text-underline-offset: 3px;
+  list-style-type: circle;
 }
 
-.header__links-list-item_no-bullit {
+/* Вроде бы с пятитысячного раза дошло как наследуются стили и как работают модификаторы */
+
+.header__links-list .header__links-list-item_no-bullit {
   list-style-type: none;
 }
 
-.header__link {
-  border-bottom: 1px #000 solid;
-  text-decoration: none;  
-}
-
-.header__menu_link-active {
+.header__links-list-item_no-bullit .header__link {
   text-decoration: none;
 }
 
@@ -64,11 +64,9 @@
   color: #000;
   font-weight: 400;
   font-size: 18px;
+  font-style: normal;
   line-height: 1.35;
   text-underline-offset: 2px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-  font-style: inherit;
 }
 
 /* ---- ОПИСАНИЕ COVER ---- */
@@ -77,11 +75,11 @@
   position: relative;
   z-index: 0;
   width: 100%;
-  min-height: 757px; 
+  min-height: 757px;
+  margin-bottom: 90px; 
   background-image: url("../images/cover.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 90px;
 }
 
 .cover::before {
@@ -117,16 +115,16 @@
   text-align: left;
 }
 
-.aligned-text_letter-spacing {
+.aligned-text__letter-spacing {
   letter-spacing: 60px;
 }
 
-.aligned-text_center {
+.aligned-text__center {
   line-height: 1.1;
   text-align: center;  
 }
 
-.aligned-text_right {
+.aligned-text__right {
   display: block;
   margin-right: -30px;
   line-height: 0.9;
@@ -145,18 +143,18 @@
   font-size: 22px;
 }
 
-.cover__description-text {
+.description-text {
   line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
   word-spacing: 17px;
 }
 
-.cover__description-text_indent {
+.description-text__indent {
   word-spacing: 22px;
 }
 
-.cover__description-bet_button {
+.description__bet-button {
   border: 1px solid rgba(255, 255, 255, 0.8);
   padding: 12px 32px;
   color: rgba(255, 255, 255, 0.8);
@@ -166,8 +164,8 @@
   text-align: center;
   text-transform: uppercase;
   background-color: transparent;
-  cursor: pointer;
   transition: background-color 0.6s;
+  cursor: pointer;
 }
 
 .cover__description-bet_button:hover { 
@@ -221,9 +219,9 @@
   color: #FFF;
   font-family: 'Raleway', sans-serif;
   line-height: 1.2;
+  list-style-type: none;
   background-repeat: no-repeat;
   background-size: cover;
-  list-style-type: none;
 }
 
 .card::before {
@@ -237,23 +235,23 @@
   background-color: rgba(0 0 0 / .6);
 }
 
-.card_type_film {
+.card-type-film {
   background-image: url(../images/card-lot-01.jpg);
 }
 
-.card_type_book {
+.card-type-book {
   background-image: url(../images/card-lot-02.jpg);
 }
 
-.card_type_picture {
+.card-type-picture {
   background-image: url(../images/card-lot-03.jpg);
 }
 
 .card__title {
   font-weight: 700;
   font-size: 22px;
-  text-transform: uppercase;
   text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .card__text {
@@ -320,69 +318,55 @@
 }
 
 .about__text {
-  grid-area: about__text;
   display: flex;
   flex-direction: column;
+  grid-area: about__text;
   justify-content: space-between;
-  align-self: flex-end;
   gap: 29px;
+  align-self: flex-end;
   color: #000;
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
   font-weight: 400;
-  line-height: normal;
+  font-size: 20px;
+  line-height: 1.15;
 }
 
 /* ---- ОПИСАНИЕ FOOTER ---- */
 
 .footer {
-  padding: 90px 50px;
   display: grid;
-  gap: 356px;
-  grid-template-columns: 1fr 1fr 240px;
+  grid-template-columns: 240px 149px 240px; /*долго пытался понять как сделать лучше. метод с разделением на фракции не помог, "посмотреть лоты" делится на две строки и все тут.*/
   justify-items: space-between;
-}
-
-.address {
-  display: block;
-  white-space: wrap;
-  align-content: start;
-  color: #000;
-  font-family: 'Raleway', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  text-underline-offset: 3px;
-  line-height: 1.35;
-  min-width: 240px;
+  gap: 356px;
+  padding: 90px 50px;
 }
 
 .footer__menu {
   display: block;
   text-align: center;
-  
 }
 
 .footer__menu-list-item {
-  list-style: none;
   color: #000;
-  text-align: center;
   font-family: 'Raleway', sans-serif;
-  font-size: 18px;
   font-weight: 400;
+  font-size: 18px;
   line-height: normal;
+  text-align: center;
   text-underline-offset: 3px;
+  list-style: none;
 }
 
-.footer__menu-link_active {
-  list-style-type: none;
+.footer__menu-list-item .footer__menu-link_active {
   text-decoration: none;
+  list-style-type: none;
 }
 
 .footer__social-list {
-  width: 240;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between; 
+  width: 240;
   list-style: none;
 }
 
